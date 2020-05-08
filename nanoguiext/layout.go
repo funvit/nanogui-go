@@ -2,7 +2,7 @@ package nanoguiext
 
 import (
 	"fmt"
-	"github.com/shibukawa/nanogui.go"
+	"github.com/shibukawa/nanogui-go"
 	"github.com/shibukawa/nanovgo"
 )
 
@@ -191,7 +191,7 @@ func (b *ExpandBoxLayout) PreferredSize(widget nanogui.Widget, ctx *nanovgo.Cont
 	axis1 := int(b.orientation)
 	axis2 := (int(b.orientation) + 1) % 2
 	minimumContainerSize := []int{0, 0}
-	minimumContainerSize[axis1] += b.margin*2
+	minimumContainerSize[axis1] += b.margin * 2
 
 	childCount := 0
 	for _, child := range widget.Children() {
@@ -207,7 +207,7 @@ func (b *ExpandBoxLayout) PreferredSize(widget nanogui.Widget, ctx *nanovgo.Cont
 		}
 	}
 	if childCount > 0 {
-		minimumContainerSize[axis1] += (childCount-1) * b.spacing
+		minimumContainerSize[axis1] += (childCount - 1) * b.spacing
 	}
 	minimumContainerSize[axis2] += b.margin * 2
 	for i := 0; i < 2; i++ {

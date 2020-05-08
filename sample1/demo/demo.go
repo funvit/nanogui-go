@@ -2,7 +2,7 @@ package demo
 
 import (
 	"fmt"
-	"github.com/shibukawa/nanogui.go"
+	"github.com/shibukawa/nanogui-go"
 	"github.com/shibukawa/nanovgo"
 	"math"
 	"strconv"
@@ -279,7 +279,11 @@ func SelectedImageDemo(screen *nanogui.Screen, imageButton *nanogui.PopupButton,
 	img := nanogui.NewImageView(window)
 	img.SetPolicy(nanogui.ImageSizePolicyExpand)
 	img.SetFixedSize(300, 300)
-	img.SetImage(imagePanel.Images()[0].ImageID)
+	images := imagePanel.Images()
+	if len(images) == 0 {
+		return
+	}
+	img.SetImage(images[0].ImageID)
 
 	imagePanel.SetCallback(func(index int) {
 		img.SetImage(imagePanel.Images()[index].ImageID)

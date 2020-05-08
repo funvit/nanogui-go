@@ -108,7 +108,7 @@ func NewScreen(width, height int, caption string, resizable, fullScreen bool) *S
 		}
 	})
 
-	screen.window.SetPreeditCallback(func(w *glfw.Window, text []rune, blocks []int, focusedBlock int) {
+	/*screen.window.SetPreeditCallback(func(w *glfw.Window, text []rune, blocks []int, focusedBlock int) {
 		if screen, ok := nanoguiScreens[w]; ok {
 			screen.preeditCallbackEvent(text, blocks, focusedBlock)
 		}
@@ -119,6 +119,7 @@ func NewScreen(width, height int, caption string, resizable, fullScreen bool) *S
 			screen.imeStatusCallbackEvent()
 		}
 	})
+	*/
 
 	screen.window.SetDropCallback(func(w *glfw.Window, names []string) {
 		if screen, ok := nanoguiScreens[w]; ok {
@@ -406,6 +407,7 @@ func (s *Screen) MoveWindowToFront(window IWindow) {
 	}
 }
 
+/*
 func (s *Screen) PreeditCursorPos() (int, int, int) {
 	return s.window.GetPreeditCursorPos()
 }
@@ -413,6 +415,7 @@ func (s *Screen) PreeditCursorPos() (int, int, int) {
 func (s *Screen) SetPreeditCursorPos(x, y, h int) {
 	s.window.SetPreeditCursorPos(x, y, h)
 }
+*/
 
 func (s *Screen) drawWidgets() {
 	if !s.visible {

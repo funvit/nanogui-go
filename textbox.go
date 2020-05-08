@@ -491,15 +491,15 @@ func (t *TextBox) Draw(self Widget, ctx *nanovgo.Context) {
 				offsetIndex = nextOffsetIndex
 				offsetX = nextOffsetX
 			}
-			screen := t.FindWindow().Parent().(*Screen)
-			oldCurX, oldCurY, oldCurH := screen.PreeditCursorPos()
-			absX, absY := t.Parent().AbsolutePosition()
-			newCurX := int(caretX) + absX
-			newCurY := int(drawPosY+lineH*0.5) + absY
-			newCurH := int(lineH)
-			if oldCurX != newCurX || oldCurY != newCurY || oldCurH != newCurH {
-				screen.SetPreeditCursorPos(newCurX, newCurY, newCurH)
-			}
+			// screen := t.FindWindow().Parent().(*Screen)
+			//oldCurX, oldCurY, oldCurH := screen.PreeditCursorPos()
+			//absX, absY := t.Parent().AbsolutePosition()
+			//newCurX := int(caretX) + absX
+			//newCurY := int(drawPosY+lineH*0.5) + absY
+			//newCurH := int(lineH)
+			//if oldCurX != newCurX || oldCurY != newCurY || oldCurH != newCurH {
+			//	screen.SetPreeditCursorPos(newCurX, newCurY, newCurH)
+			//}
 		} else if t.cursorPos > -1 {
 			// regular cursor and selection area
 			caretX = t.textIndex2Position(t.cursorPos, bounds[2], glyphs)

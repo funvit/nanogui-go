@@ -3,8 +3,10 @@ package nanogui
 import (
 	"github.com/goxjs/gl"
 	"github.com/shibukawa/glfw"
+	"runtime"
 	"sync"
 	"time"
+	//	"runtime"
 )
 
 var mainloopActive bool = false
@@ -35,7 +37,12 @@ func MainLoop() {
 	wg.Add(1)
 	go func() {
 		for mainloopActive {
-			time.Sleep(50 * time.Millisecond)
+			runtime.LockOSThread()
+			time.Sleep(200 * time.Millisecond)
+			runtime.UnlockOSThread()
+
+			// Original line. Causes app to fail.
+			//time.Sleep(50 * time.Millisecond)
 			glfw.PostEmptyEvent()
 		}
 		wg.Done()
